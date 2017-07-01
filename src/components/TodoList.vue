@@ -3,6 +3,7 @@
     <input @keydown.enter="addTodo(newtask)" type="text" v-model="newtask"/>
     <button @click="addTodo(newtask)">Add</button>
     <button @click="todos.reverse()">Flip</button>
+    <button @click="todos = []">Clear</button>
     <ul id="todo-list">
       <li v-for="todo in todos" :key="todo.id">
         <input @change="todo.done = true" type="checkbox" :checked="todo.done"/>
