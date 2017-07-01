@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.ts'
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,7 +19,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.ts'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
@@ -27,6 +27,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        loader: "ts-loader",
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
