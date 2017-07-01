@@ -14,23 +14,22 @@
 </template>
 
 <script lang="js">
-  export default {
-    data () {
-      return {
-        todos: [
-          {id: 1, task: 'First task', done: true},
-          {id: 2, task: 'Second task', done: false}
-        ]
-      }
-    },
-    methods: {
-      addTodo (newtodo) {
-        this.todos.push({
-          id: this.todos.length + 1,
-          task: newtodo,
-          done: false
-        })
-      }
+  import Vue from 'vue'
+  import Component from 'vue-class-component'
+
+  @Component
+  export default class TodoList extends Vue {
+    todos= [
+      {id: 1, task: 'First task', done: true},
+      {id: 2, task: 'Second task', done: false}
+    ]
+
+    addTodo (newtodo) {
+      this.todos.push({
+        id: this.todos.length + 1,
+        task: newtodo,
+        done: false
+      })
     }
   }
 </script>
